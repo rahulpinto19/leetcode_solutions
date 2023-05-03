@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<vector<int>> findDifference(vector<int>& nums1, vector<int>& nums2) 
+    {
+        set<int> first(nums1.begin(),nums1.end());
+        set<int> second(nums2.begin(),nums2.end());
+        vector<int>unq1;
+        vector<int>unq2;
+        for(int num:first)
+        {
+            if(second.count(num)==0)
+            unq1.push_back(num);
+        }
+        for(int num:second)
+        {
+            if(first.count(num)==0)
+            unq2.push_back(num);
+        }
+        return {unq1,unq2};
+    }
+};
